@@ -31,6 +31,5 @@ module EventbriteRuby
         req.body = data.to_json
       end
     end
-
   end
 end
