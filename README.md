@@ -52,7 +52,7 @@ OR:
 
 
 Search events:
-``
+```
     EventbriteRuby::Events.new.search({q: "Malaga", "location.address": "Malaga"})
     EventbriteRuby::Events.new.create({...})
     EventbriteRuby::Events.new.find({'ID')
