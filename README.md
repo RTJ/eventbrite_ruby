@@ -1,6 +1,6 @@
 # EventbriteRuby
 
-**Ruby wrapper for Eventbrite REST API** 
+**Ruby wrapper for Eventbrite REST API**
 
 ## Installation
 
@@ -51,16 +51,34 @@ OR:
 ```
 
 
-Search events:
+Supported endpoints:
 ```
-    EventbriteRuby::Events.new.search({q: "Malaga", "location.address": "Malaga"})
-    EventbriteRuby::Events.new.create({...})
-    EventbriteRuby::Events.new.find({'ID')
-    EventbriteRuby::Events.new.update_event({id: "...", "location.address": "Malaga"})
+    EventbriteRuby::Event.search({q: "Malaga", "location.address": "Malaga"})
+    EventbriteRuby::Event.create({...})
+    EventbriteRuby::Event.find({'ID')
+    EventbriteRuby::Event.update_event({id: "...", "location.address": "Malaga"})
+
+    EventbriteRuby::Category.all({...})
+    EventbriteRuby::Category.find({...})
+    EventbriteRuby::Category.subcategories({...})
+    EventbriteRuby::Category.find_subcategory({...})
+
+    EventbriteRuby::Format.all({...})
+    EventbriteRuby::Format.find({...})
+
+    EventbriteRuby::Notification.all({...})
+
+    EventbriteRuby::Order.find({...})
+
+    EventbriteRuby::Media.find({...})
+    EventbriteRuby::Media.upload({...})
+
+    #Pagination:
+    EventbriteRuby::Category.subcategories({continuation: "eyJwYWdlIjogMn0"})
+
 
     # more will be added soon...
 ```
-# Supported endpoints
 
 ## Development
 
