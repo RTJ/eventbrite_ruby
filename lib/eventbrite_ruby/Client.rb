@@ -1,6 +1,6 @@
 module EventbriteRuby
   class Client
-    attr_accessor :personal_key, :password
+    attr_accessor :personal_key
 
     def initialize(personal_key: nil)
       @personal_key = personal_key || EventbriteRuby.personal_key
@@ -16,7 +16,11 @@ module EventbriteRuby
       end
     end
 
-    def post(url, data)
+    def post(url, data = {})
+      if data[:continuation].present?
+        url = "#{url}?continuation=#{data[:continuation]}"
+        data.delete(:continuation)
+      end
       connection.post do |req|
         req.url url
         req.headers['Content-Type'] = 'application/json'
@@ -24,7 +28,11 @@ module EventbriteRuby
       end
     end
 
-    def get(url, data)
+    def get(url, data = {})
+      if data[:continuation].present?
+        url = "#{url}?continuation=#{data[:continuation]}"
+        data.delete(:continuation)
+      end
       connection.get do |req|
         req.url url
         req.headers['Content-Type'] = 'application/json'
